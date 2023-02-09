@@ -34,3 +34,9 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+      # Test out using secrets
+      - name: Secret Display
+        with:
+          super_secret: ${{ secrets.MySecret }}
+        run: echo Secret is $super_secret
