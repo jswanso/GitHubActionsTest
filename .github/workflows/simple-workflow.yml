@@ -38,10 +38,6 @@ jobs:
       # Test out using secrets
       - name: Get the secret
         run: echo Secret is ${{ secrets.MySecret }}
-
-      # Test out using a varaible
-      - name: Get the variable
-        run: echo Variable is ${{ MyVariable }}
         
       # Test out using a varaible again
       - name: Get the variable
