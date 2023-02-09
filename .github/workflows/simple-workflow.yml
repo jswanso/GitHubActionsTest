@@ -37,7 +37,5 @@ jobs:
 
       # Test out using secrets
       - name: Get the secret
-        run: echo Secret is $super_secret
-        with:
-          super_secret: ${{ secrets.MySecret }}
+        run: echo Secret is ${{ secrets.MySecret }}
         
