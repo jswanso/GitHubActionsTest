@@ -41,7 +41,7 @@ jobs:
         
       # Test out using a varaible again
       - name: Get the variable
-        run: echo Variable is "$MYVARIABLE"
+        run: echo "$GITHUB_CONTEXT"
 
       # Test out using varaibles
       - name: Get all variables
