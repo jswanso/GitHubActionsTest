@@ -29,36 +29,42 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-
       # Test out using secrets
       - name: Get the secret
         run: echo Secret is ${{ secrets.MySecret }}
-        
+
+      - name: Get just secrets object
+        run: echo Secret is ${{ secrets }}
+
+      # Get secrets in Json
+      - name: Get all secrets
+        run: echo Secret is ${{ toJson(secrets) }}
+
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
+
       - name: Dump job context
         env:
           JOB_CONTEXT: ${{ toJson(job) }}
         run: echo "$JOB_CONTEXT"
+
       - name: Dump steps context
         env:
           STEPS_CONTEXT: ${{ toJson(steps) }}
         run: echo "$STEPS_CONTEXT"
+
       - name: Dump runner context
         env:
           RUNNER_CONTEXT: ${{ toJson(runner) }}
         run: echo "$RUNNER_CONTEXT"
+
       - name: Dump strategy context
         env:
           STRATEGY_CONTEXT: ${{ toJson(strategy) }}
         run: echo "$STRATEGY_CONTEXT"
+
       - name: Dump matrix context
         env:
           MATRIX_CONTEXT: ${{ toJson(matrix) }}
@@ -72,5 +78,21 @@ jobs:
           echo "The GitHub Actor's username is: $GITHUB_ACTOR"
           echo "GitHub SHA: $GITHUB_SHA"
 
-      - name: Dump directly
-        run: echo "${{ runner}}"
+      # echo "${{ runner }}" will show an object
+      - name: Dump runner workspace
+        run: echo "${{ runner.workspace }}"
+
+      - name: Print Environment Variables
+        run: printenv
+
+      - name: List aliases
+        run: compgen -a | sort
+
+      - name: List commands
+        run: compgen -c | sort
+
+      - name: List built-ins
+        run: compgen -b | sort
+
+      - name: List keywords
+        run: compgen -k | sort
