@@ -84,7 +84,7 @@ jobs:
         run: echo "${{ runner.workspace }}"
 
       - name: Print Environment Variables
-        run: printenv
+        run: printenv | sort
 
       - name: List aliases
         run: compgen -a | sort
