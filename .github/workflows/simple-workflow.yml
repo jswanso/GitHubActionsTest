@@ -30,15 +30,16 @@ jobs:
         run: echo Hello, world!
 
       # Test out using secrets
-      - name: Get the secret
+      - name: Get My Secret Variable
         run: echo Secret is ${{ secrets.MySecret }}
 
-      - name: Get just secrets object
+      - name: Get Just the Secrets which is an object
         run: echo Secret is ${{ secrets }}
 
       # Get secrets in Json
-      - name: Get all secrets
-        run: echo Secret is ${{ toJson(secrets) }}
+      #- name: Get all secrets
+      #  run: echo Secret is ${{ toJson(secrets) }}
+      #
 
       - name: Dump GitHub context
         env:
