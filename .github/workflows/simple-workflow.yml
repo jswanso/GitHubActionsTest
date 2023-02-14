@@ -50,9 +50,6 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
 
-      - name: Show vars context
-        run: echo ${{ toJson(vars) }}
-
       - name: Show env context
         run: echo ${{ toJson(env) }}
 
