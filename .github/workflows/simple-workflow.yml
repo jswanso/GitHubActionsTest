@@ -41,10 +41,20 @@ jobs:
       #  run: echo Secret is ${{ toJson(secrets) }}
       #
 
-      - name: Dump GitHub context
+      # print out different context in the workflow
+      # https://docs.github.com/en/actions/learn-github-actions/contexts#about-contexts
+
+      # https://docs.github.com/en/actions/learn-github-actions/contexts#github-context
+      - name: Show github context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
+
+      - name: Show vars context
+        run: echo ${{ toJson(vars) }}
+
+      - name: Show env context
+        run: echo ${{ toJson(env) }}
 
       - name: Dump job context
         env:
@@ -70,6 +80,9 @@ jobs:
         env:
           MATRIX_CONTEXT: ${{ toJson(matrix) }}
         run: echo "$MATRIX_CONTEXT"
+
+      - name: Show inputs context
+        run: echo ${{ toJson(inputs) }}
 
       - name: Show default environment variables
         run: |
