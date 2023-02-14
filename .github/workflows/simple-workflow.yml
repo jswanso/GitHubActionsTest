@@ -41,6 +41,10 @@ jobs:
       #  run: echo Secret is ${{ toJson(secrets) }}
       #
 
+
+      - name: Show vars context
+        run: echo ${{ vars.MYVARIABLE }}
+
       # print out different context in the workflow
       # https://docs.github.com/en/actions/learn-github-actions/contexts#about-contexts
 
