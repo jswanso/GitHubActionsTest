@@ -100,6 +100,8 @@ jobs:
       - name: Print Environment Variables
         run: printenv | sort
 
+      # https://stackoverflow.com/questions/948008/linux-command-to-list-all-available-commands-and-aliases
+      # https://linuxhandbook.com/sort-command/
       - name: List aliases
         run: compgen -a | sort
 
