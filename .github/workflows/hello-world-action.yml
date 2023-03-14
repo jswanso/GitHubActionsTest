@@ -1,5 +1,4 @@
 # This is to test out the action I built.
-# Souce: https://docs.github.com/en/actions/creating-actions/creating-a-javascript-action
 
 name: Hello World Action
 
