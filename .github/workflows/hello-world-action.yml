@@ -1,9 +1,13 @@
-# This is to test out the action I built.
+# This is to test out the JavaScript action I built.
+# Source Code of Custom Action: https://github.com/jswanso/hello-world-javascript-action
+# Documentation Used in Building Custom Action: https://docs.github.com/en/actions/creating-actions/creating-a-javascript-action
 
 name: Hello World Action
 
 on: 
   push:
+    paths:
+      - '.github/workflows/hello-world-action.yml'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:

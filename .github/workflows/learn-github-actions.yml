@@ -6,6 +6,8 @@ run-name: ${{ github.actor }} is learning GitHub Actions
 
 on: 
   push:
+    paths:
+      - '.github/workflows/learn-github-actions.yml'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -16,7 +18,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      
+
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
