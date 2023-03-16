@@ -20,10 +20,18 @@ jobs:
 
       - run: printenv | sort
 
-      - name: Let echo use custom env variable
-        run: echo "Hello ${{ MY_NAME }}. How are you?"
+      # Updated step to not echo a variable ${{ MY_NAME }} because it was failing
+      # Error: The workflow is not valid. .github/workflows/custom-env-variable.yml (Line: 24, Col: 14): 
+      #        Unrecognized named-value: 'MY_NAME'. Located at position 1 within expression: MY_NAME
+      - name: Show shell variables
+        run: set | sort
         env:
           MY_NAME: "Justin S."
+
+      - name: Show env variables
+        run: printenv | sort
+        env:
+          MY_OTHER_NAME: "Justin S."
 
       - run: set | sort
 
