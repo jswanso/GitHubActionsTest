@@ -1,0 +1,26 @@
+# This is to test out an example workflow given in the GitHub documenation.
+# Source: https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions
+
+name: Learn Github Actions
+run-name: ${{ github.actor }} is learning GitHub Actions
+
+on: 
+  push:
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - run: npm install -g bats
+
+      - run: bats -v
