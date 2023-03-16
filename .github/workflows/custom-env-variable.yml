@@ -1,4 +1,6 @@
 # This is to test out custom environment variables
+# Discovered that env variables exposed in the yaml are only available in that step as environment variables
+#    after the step the environment variable is gone.
 # Source: https://docs.github.com/en/actions/learn-github-actions/essential-features-of-github-actions#using-variables-in-your-workflows
 
 name: Custon Environment Varaible
@@ -20,9 +22,11 @@ jobs:
 
       - run: printenv | sort
 
-      # Updated step to not echo a variable ${{ MY_NAME }} because it was failing
-      # Error: The workflow is not valid. .github/workflows/custom-env-variable.yml (Line: 24, Col: 14): 
-      #        Unrecognized named-value: 'MY_NAME'. Located at position 1 within expression: MY_NAME
+      - name: Let echo use custom env variable
+        run: echo "Hello ${{ env.MY_WELCOME }}. How are you?"
+        env:
+          MY_WELCOME: "Justin S."
+
       - name: Show shell variables
         run: set | sort
         env:
